@@ -279,6 +279,11 @@ func (h *httpGetter) makeRequest(ctx context.Context, m string, in request, b io
 		url.PathEscape(in.GetGroup()),
 		url.PathEscape(in.GetKey()),
 	)
+	fmt.Printf("making request to %v\n", u)
+	fmt.Printf("request body: %v\n", b)
+	fmt.Printf("request method: %v\n", m)
+	fmt.Printf("request context: %v\n", ctx)
+	fmt.Printf("request in: %v\n", in)
 	req, err := http.NewRequestWithContext(ctx, m, u, b)
 	if err != nil {
 		return err
